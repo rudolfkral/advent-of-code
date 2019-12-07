@@ -104,4 +104,15 @@
 
 (advent-of-code-2-for-file "input" 1 2)
 
+(dotimes (noun 5)
+  (dotimes (verb 5)
+    (print (advent-of-code-2-for-file "input" noun verb))))
 
+(setq noun-and-verb
+      (catch 'result
+        (dotimes (noun 99)
+          (dotimes (verb 99)
+            (if (= 19690720 (advent-of-code-2-for-file "input" noun verb))
+                (throw 'result (list noun verb)))))))
+
+(print (+ (* 100 (nth 0 noun-and-verb)) (nth 1 noun-and-verb)))
